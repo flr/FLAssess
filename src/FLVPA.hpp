@@ -1,7 +1,7 @@
 #ifndef _INC_FLVPA
 #define _INC_FLVPA
 
-#include <FLCoreClasses.hpp>
+#include <FLCoreClasses.h>
                            
 #define VPA_TOL     1e-20
 #define SEPVPA_TOL  1e-40
