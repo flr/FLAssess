@@ -5,9 +5,8 @@
 # Maintainer: Finlay Scott, Cefas & Robert Scott, JRC
 # $Id$
 
-if (!isGeneric("stf"))
-    setGeneric("stf", function(object,...)
-	    standardGeneric("stf"))
+setGeneric("stf", function(object,...)
+	standardGeneric("stf"))
 
 ## stf(FLStock) {{{
 setMethod('stf', signature(object='FLStock'),

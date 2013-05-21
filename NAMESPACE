@@ -1,4 +1,3 @@
-useDynLib("FLAssess")
 import("FLCore")
 exportClasses("FLAssess",
   "FLAssess.retro",

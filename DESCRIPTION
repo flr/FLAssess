@@ -7,7 +7,7 @@ Description: A generic set of classes for stock assessment models
 			 extend the basic classes.
 Collate: classFLAssess.R accessors.R methodsFLAssess.R FLSP.R projectControl.R project.R stf.R SepVPA.R VPA.R zzz.R handyfuncs.R deprecated.R
 Depends: FLCore(>= 2.5.0), methods
-LinkingTo: FLCore
+LinkingTo: FLash
 Maintainer: Finlay Scott <finlay.scott@cefas.co.uk> ; Robert Scott <robert.scott@jrc.ec.europa.eu>
 License: GPL 2.0
 lazyLoad: Yes
