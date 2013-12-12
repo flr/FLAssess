@@ -108,7 +108,7 @@ setMethod("merge", signature(x="FLStock", y="FLAssess"),
       stop("Mismatch in dimensions: only year can differ between stock and assess")
 
     # same plusgroup
-    if(x@range['plusgroup'] != x@range['plusgroup'])
+    if(x@range['plusgroup'] != y@range['plusgroup'])
       stop("Mismatch in plusgroup: x and y differ")
 
     # year ranges match?
