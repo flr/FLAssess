@@ -1,19 +1,12 @@
 import("FLCore")
+useDynLib("FLAssess")
 exportClasses("FLAssess",
-  "FLAssess.retro",
   "FLSepVPA.control",
-#  "FLSP",
   "FLVPA",
   "projectControl")
 export("assess",
   "FLSepVPA.control",
-  "projectControl",
-#  "pellatom",
-#  "PellaTom",
-#  "pellatom_calcQ",
-#  "PellaTom_calcQ",
-#  "pellatom_calcSigma",
-  "retro")
+  "projectControl")
 exportMethods(
   "+",
   "assess",
@@ -29,13 +22,11 @@ exportMethods(
   "index.res<-",
   "merge",
   "plot",
-  "retro",
   "project",
   "SepVPA",
   "stf",
   "summary",
   "VPA",
-#  "FLSP",
   "FLAssess",
   "fmle",
   "Z")

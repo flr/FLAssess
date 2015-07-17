@@ -11,7 +11,7 @@ setGeneric("stf", function(object,...)
 ## stf(FLStock) {{{
 setMethod('stf', signature(object='FLStock'),
   function(object, nyears=3, wts.nyears=3, fbar.nyears=wts.nyears, f.rescale=FALSE,
-    arith.mean=TRUE, na.rm=TRUE, end=dims(object)$maxyear + nyears)
+    arith.mean=TRUE, na.rm=TRUE, end=dims(object)$maxyear + nyears, disc.nyears=wts.nyears)
   {
     dims <- dims(object)
 
@@ -24,6 +24,7 @@ setMethod('stf', signature(object='FLStock'),
     # years
     years      <- ac((dims$maxyear+1):end)
     wts.years  <- ac(seq(dims$maxyear-wts.nyears+1, dims$maxyear))
+    disc.years  <- ac(seq(dims$maxyear-disc.nyears+1, dims$maxyear))
     fbar.years <- ac(seq(dims$maxyear-fbar.nyears+1, dims$maxyear))
     fbar.ages  <- ac(range(object, 'minfbar'):range(object, 'maxfbar'))
 
@@ -44,9 +45,9 @@ setMethod('stf', signature(object='FLStock'),
          slot(res, i)[,j] <-flq
       }
 
-    # landings.n and discards.n as proportions of wts.years
+    # landings.n and discards.n as proportions of disc.years
     for (i in years)
-       slot(res, 'discards.n')[,i] <- apply(slot(res, 'discards.n')[, wts.years]/slot(res, 'catch.n')[, wts.years], c(1,3:6), mean)
+       slot(res, 'discards.n')[,i] <- apply(slot(res, 'discards.n')[, disc.years]/slot(res, 'catch.n')[, disc.years], c(1,3:6), mean)
     slot(res, 'landings.n')[,years] <- 1 - slot(res, 'discards.n')[,years]
 
     # harvest as mean over fbar.nyears

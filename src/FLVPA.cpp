@@ -2,7 +2,7 @@
    
    Author: Laurie Kell, CEFAS
    Maintainer: Laurie Kell
-   Last Change: 02 May 2008 11:48
+   Last Change: Tue Jul 16, 2013 at 03:49 PM +0200
    $Id$ */
 
 
@@ -13,7 +13,7 @@
    #define SEXPDLLExport SEXP    
 #endif
 
-#include "FLVPA.hpp"
+#include "FLVPA.h"
 #include <R.h>
 
 extern "C" SEXPDLLExport _FLVPA(SEXP xStock, SEXP xFitPlusGroup, SEXP xFratio, SEXP xFratioFlag)
