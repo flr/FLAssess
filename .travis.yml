@@ -1,0 +1,31 @@
+# .travis.yml for FLR packages
+#
+
+warnings_are_errors: false
+
+os:
+  - linux
+  - osx
+
+language: r
+
+r:
+  - release
+  - devel
+
+sudo: false
+
+repos:
+  CRAN: https://cloud.r-project.org
+  flr: http://flr-project.org/R
+
+cache: packages
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+branches:
+  only:
+    - master
