@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>project. FLAssess 2.5.20150717</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Rob Scott">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="index.html">FLAssess 2.5.20150717</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>projection method for FLStock objects</h1>
+
+<div class="row">
+  <div class="span8">
+        
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>A method for projecting FLStock objects.</p>
+
+    </div>
+
+    <div class="Usage">
+      <h2>Usage</h2>
+
+      <p>project(stock, control, sr)</p>
+
+    </div>
+
+    <div class="Method arguments">
+      <h2>Method arguments</h2>
+
+      <p><dl>
+<dt><code>stock</code>   :</dt><dd>an object of class <a href='http://www.rdocumentation.org/packages/FLCore/topics/FLStock'>FLStock</a> or of one that inherits from it.</dd></p>
+
+      <p><dt><code>control</code> :</dt><dd>an object of class <a href='projectControl.html'>projectControl</a> specifying the forcast parameters.</dd></p>
+
+      <p><dt><code>sr</code>      :</dt><dd>an object of class <a href='http://www.rdocumentation.org/packages/FLCore/topics/FLSR'>FLSR</a> giving the stock recruit relationship.</dd></p>
+
+      <p></dl></p>
+
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+
+      <p>project conducts a deterministic projection on an FLStock object for which estimates of population abundance and harvest at age have been determined. The project method provides a simplified, pure R, version of the fwd method. The syntax and arguments to project are similar to those of fwd, however, only the basic functionality of the stock projection process is provided. Users wishing to perform more complex multi-fleet, multi-stock, area or sex disaggregated projections or to project objects other than FLStock objects should use the fwd method available from the FLash package.</p>
+
+      <p>The project method has three arguments. An FLStock object for which estimates of population abundance and harvest at age are available and to which the stf method has been applied (the stf method extends the FLStock object to the required number of years and fills a number of slots with the appropriate values ready for the projection). The control object specifies the target values in each year for the projection. These can be any combination of catch, landings, ssb or fishing mortality targets. Finally the method requires an FLSR object that will specify the value of future recruitments.</p>
+
+      <p>In the example provided below a 5 year projection is conducted for the period 2009 to 2013. An SSB target is specified for the first year. Note that an SSB target specified for 2009 will determine the exploitation level in 2009 that will provide the target SSB at spawning time the following year. Consequently the resulting FLStock object has an SSB of 250000 t in 2010. The catch, landings and f targets all take effect in the year for which they are specified, ie. catch in 2010 is 80000 t, landings in 2011 are 60000 t and so on. Note also that the f targets correspond to the fbar value such that fbar in 2012 and 2013 are 0.4 and 0.5 respectively.</p>
+
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="functioncall"><a href='http://www.rdocumentation.org/packages/utils/topics/data'>data</a></span><span class="keyword">(</span><span class="symbol">ple4</span><span class="keyword">)</span>
+<span class="symbol">ple4.stf</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='stf-methods.html'>stf</a></span><span class="keyword">(</span><span class="symbol">ple4</span><span class="keyword">,</span> <span class="number">5</span><span class="keyword">)</span>
+<span class="symbol">ple4.sr</span>  <span class="assignement">&lt;-</span> <span class="functioncall">fmle</span><span class="keyword">(</span><span class="functioncall">as.FLSR</span><span class="keyword">(</span><span class="symbol">ple4</span><span class="keyword">,</span><span class="argument">model</span><span class="argument">=</span><span class="symbol">geomean</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<strong class='error'>Error in get(&quot;.Generic&quot;): object &#39;.Generic&#39; not found</strong>
+<div class='input'><span class="symbol">ctrl</span>     <span class="assignement">&lt;-</span> <span class="functioncall"><a href='projectControl.html'>projectControl</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span><span class="keyword">(</span><span class="argument">year</span><span class="argument">=</span><span class="number">2009</span><span class="keyword">:</span><span class="number">2013</span><span class="keyword">,</span>
+                                      <span class="argument">val</span><span class="argument">=</span><span class="functioncall"><a href='http://www.rdocumentation.org/packages/base/topics/c'>c</a></span><span class="keyword">(</span><span class="number">250000</span><span class="keyword">,</span> <span class="number">80000</span><span class="keyword">,</span> <span class="number">60000</span><span class="keyword">,</span> <span class="number">0.4</span><span class="keyword">,</span> <span class="number">0.5</span><span class="keyword">)</span><span class="keyword">,</span>
+                                      <span class="argument">quantity</span><span class="argument">=</span><span class="functioncall"><a href='http://www.rdocumentation.org/packages/base/topics/c'>c</a></span><span class="keyword">(</span><span class="string">'ssb'</span><span class="keyword">,</span><span class="string">'catch'</span><span class="keyword">,</span><span class="string">'landings'</span><span class="keyword">,</span><span class="string">'f'</span><span class="keyword">,</span><span class="string">'f'</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="symbol">res</span>      <span class="assignement">&lt;-</span> <span class="functioncall"><a href='project.html'>project</a></span><span class="keyword">(</span><span class="symbol">ple4.stf</span><span class="keyword">,</span> <span class="symbol">ctrl</span><span class="keyword">,</span> <span class="symbol">ple4.sr</span><span class="keyword">)</span></div>
+<strong class='error'>Error in project(ple4.stf, ctrl, ple4.sr): object &#39;ple4.sr&#39; not found</strong>
+<div class='input'></div></pre>
+  </div>
+  <div class="span4 sidebar">
+    <!-- <ul>
+      <li>project</li><li>project-methods</li><li>project,FLStock,projectControl,FLSR-method</li><li>project,FLStock,missing,FLSR-method</li>
+    </ul>
+    <ul>
+      <li>methods</li>
+    </ul> -->
+
+    <h2>See also</h2>
+      <p><a href='projectControl.html'>projectControl</a>, <a href='stf-methods.html'>stf</a></p>
+
+    
+
+    <h2>Author</h2>
+    Rob Scott
+
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="https://getbootstrap.com/2.0.4/">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

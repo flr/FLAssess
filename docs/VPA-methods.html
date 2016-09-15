@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>VPA-methods. FLAssess 2.5.20150717</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Laurence Kell">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="index.html">FLAssess 2.5.20150717</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Virtual Population Analysis in FLR</h1>
+
+<div class="row">
+  <div class="span8">
+        
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Implements Pope&#39;s Virtual Population Analysis (VPA).</p>
+
+      <p>The method returns an object of class <code>FLVPA</code> class.  This extends the <code>FLAssess</code> class although
+the <code>FLVPA</code> class currently has the same slots as the <code>FLAssess</code> class and does not add new ones.
+Objects can be created by calls of the form <code>new(&quot;FLVPA&quot;, ...)</code> or by calling the <code><a href='VPA-methods.html'>VPA</a></code> function.</p>
+
+      <p>The other arguments to <code>VPA</code> are <dl>
+<dt>fratio</dt><dd> A <code>numeric</code> with default &quot;missing&quot;</dd></p>
+
+      <p><dt>fit.plusgroup</dt><dd> A <code>Boolean</code> with default TRUE</dd></p>
+
+      <p><dt>desc</dt><dd> A <code>character</code> string which appended to the desc slot of the object</dd></p>
+
+      <p></dl></p>
+
+      <p>For the sake of speed, most of the calculations are carried out in C.</p>
+
+    </div>
+
+    <div class="Generic function">
+      <h2>Generic function</h2>
+
+      <p>VPA(stock, ...)</p>
+
+    </div>
+
+    <div class="Methods">
+      <h2>Methods</h2>
+
+      <p><dl>
+<dt> signature(object=FLStock) :</dt><dd>Performs a VPA on the FLStock object.  Other arguments are fratio, fit.plusgroup and desc, which are described above.</dd></p>
+
+      <p></dl></p>
+
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># use the ple4 data set</span>
+<span class="functioncall"><a href='http://www.rdocumentation.org/packages/utils/topics/data'>data</a></span><span class="keyword">(</span><span class="symbol">ple4</span><span class="keyword">)</span>
+<span class="symbol">ple4.test</span> <span class="assignement">&lt;-</span> <span class="symbol">ple4</span>
+<span class="comment"># Remove 0s and set as 1s</span>
+<span class="functioncall">catch.n</span><span class="keyword">(</span><span class="symbol">ple4.test</span><span class="keyword">)</span><span class="keyword">[</span><span class="functioncall">catch.n</span><span class="keyword">(</span><span class="symbol">ple4.test</span><span class="keyword">)</span>==<span class="number">0</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">1</span>
+<span class="comment"># Remove harvest and stock.n values</span>
+<span class="functioncall">stock.n</span><span class="keyword">(</span><span class="symbol">ple4.test</span><span class="keyword">)</span><span class="keyword">[</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">NA</span>
+<span class="functioncall"><a href='http://www.rdocumentation.org/packages/mpb/topics/hrate'>harvest</a></span><span class="keyword">(</span><span class="symbol">ple4.test</span><span class="keyword">)</span><span class="keyword">[</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">NA</span>
+<span class="comment"># Set Fs in final year and final ages</span>
+<span class="functioncall"><a href='http://www.rdocumentation.org/packages/mpb/topics/hrate'>harvest</a></span><span class="keyword">(</span><span class="symbol">ple4.test</span><span class="keyword">)</span><span class="keyword">[</span><span class="keyword">,</span><span class="string">"2001"</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.rdocumentation.org/packages/mpb/topics/hrate'>harvest</a></span><span class="keyword">(</span><span class="symbol">ple4</span><span class="keyword">)</span><span class="keyword">[</span><span class="keyword">,</span><span class="string">"2001"</span><span class="keyword">]</span>
+<span class="functioncall"><a href='http://www.rdocumentation.org/packages/mpb/topics/hrate'>harvest</a></span><span class="keyword">(</span><span class="symbol">ple4.test</span><span class="keyword">)</span><span class="keyword">[</span><span class="string">"10"</span><span class="keyword">,</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='http://www.rdocumentation.org/packages/mpb/topics/hrate'>harvest</a></span><span class="keyword">(</span><span class="symbol">ple4</span><span class="keyword">)</span><span class="keyword">[</span><span class="string">"10"</span><span class="keyword">,</span><span class="keyword">]</span>
+<span class="comment"># Run the VPA</span>
+<span class="symbol">ple4.vpa</span> <span class="assignement">&lt;-</span> <span class="functioncall"><a href='VPA-methods.html'>VPA</a></span><span class="keyword">(</span><span class="symbol">ple4.test</span><span class="keyword">)</span></div>
+<strong class='error'>Error in UseMethod(&quot;units&lt;-&quot;): no applicable method for &#39;units&lt;-&#39; applied to an object of class &quot;c(&#39;FLQuant&#39;, &#39;FLArray&#39;, &#39;array&#39;, &#39;structure&#39;, &#39;vector&#39;)&quot;</strong>
+<div class='input'><span class="comment"># Take a look at the harvest</span>
+<span class="functioncall"><a href='http://www.rdocumentation.org/packages/FLCore/topics/plot'>plot</a></span><span class="keyword">(</span><span class="functioncall"><a href='http://www.rdocumentation.org/packages/mpb/topics/hrate'>harvest</a></span><span class="keyword">(</span><span class="symbol">ple4.vpa</span><span class="keyword">)</span><span class="keyword">)</span></div>
+<strong class='error'>Error in harvest(ple4.vpa): object &#39;ple4.vpa&#39; not found</strong></pre>
+  </div>
+  <div class="span4 sidebar">
+    <!-- <ul>
+      <li>VPA</li><li>VPA-methods</li><li>VPA,FLStock-method</li><li>FLVPA-class</li>
+    </ul>
+    <ul>
+      <li>methods</li><li>models</li>
+    </ul> -->
+
+    <h2>See also</h2>
+      <p><code>FLSepVPA</code></p>
+
+    
+
+    <h2>Author</h2>
+    Laurence Kell
+
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="https://getbootstrap.com/2.0.4/">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

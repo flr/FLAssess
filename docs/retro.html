@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>retro-methods. FLAssess 2.5.20150717</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Laurence Kell">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="index.html">FLAssess 2.5.20150717</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1> Retrospective stock assessment in FLR </h1>
+
+<div class="row">
+  <div class="span8">
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>FLStock</dt>
+      <dd> An object of type <code>FLStock</code> that contains information
+  (catch data, natural mortality etc.) on the stock that is to be assessed</dd>
+      <dt>FLIndices</dt>
+      <dd>An object of type <code>FLIndices</code> that contains the tuning
+  data</dd>
+      <dt>control</dt>
+      <dd>A control object of the desired extended <code>FLAssess</code>
+  assesment method class, e.g. <code>FLXSA.control</code></dd>
+      <dt>year.range</dt>
+      <dd>Numeric vector of years to perform the assessment</dd>
+      <dt>retro</dt>
+      <dd>An integer that specifies the number of retrospective years.
+  Default value = 0.  Only used if year.range is not specified.</dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p></p>
+
+      <p>WARNING: This method has now been deprecated and is no longer maintained.
+Users are encouraged to perform retrospective analysis using tapply.
+See below for an example.</p>
+
+      <p>Performs a retrospective stock assessment for the desired years using the
+stock assessment method specified in the control object (see <code>FLAssess</code>
+and extended classes)</p>
+
+    </div>
+
+    <div class="Generic function">
+      <h2>Generic function</h2>
+
+      <p>retro(stock,indices,control,retro,...)</p>
+
+    </div>
+
+    <div class="Methods">
+      <h2>Methods</h2>
+
+      <p><dl>
+<dt> signature(stock=FLStock,indices=FLIndex,control=ANY,retro=numeric) :</dt><dd>Takes a single index as an <code>FLIndex</code> object.</dd></p>
+
+      <p><dt> signature(stock=FLStock,indices=FLIndices,control=ANY,retro=numeric) :</dt><dd>Takes an <code>FLIndices</code> object for multiple indices.</dd></p>
+
+      <p></dl></p>
+
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+
+      <p>The type of assessment method used is determined by the control object, e.g.
+<code>FLXSA.control</code>, <code>FLICA.control</code> etc.  In this way retrospective
+analysis using different assessment methods can be easily carried out on the
+same stock and tuning data by using different control classes.</p>
+
+      <p>The argument &#39;year.range&#39; is a numeric vector of years for which the assessment
+is to be performed.  If this is not specified the integer &#39;&#39;retro&#39;&#39; is used
+(default value = 0).  If retro = 0 the assessment is run for final year only.
+If retro = 1, the assessment is run for the penultimate and final year and so on.</p>
+
+      <p>The results of the restrospective analysis can be plotted using the
+generic FLStocks <code>plot()</code> method.</p>
+
+      <p>NOTE: This function supercedes the previous <code>retro()</code> function which returned
+an object of type <code>FLAssess.retro</code>.  The <code>FLAssess.retro</code> class is now
+obsolete and will not be present in future releases.  Users are advised to
+update their scripts to use this new function.  The original function is still in
+the <code>FLAssess</code> package with the name <code>retro.old()</code>.</p>
+
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+
+      <p><dl>
+Returns an object of type <code>FLStocks</code>.  Each component <code>FLStock</code> object
+contains the result of each of the retrospective assessments.
+</dl></p>
+
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'><span class="comment"># Using the deprecated retro method</span>
+<span class="comment"># library(FLXSA)</span>
+<span class="comment"># data(ple4)</span>
+<span class="comment"># data(ple4.indices)</span>
+<span class="comment"># retro(ple4,ple4.indices,FLXSA.control(),4)</span>
+
+<span class="comment"># Example using ''tapply'' and specifying the range of years.</span>
+<span class="comment"># This example uses FLXSA</span>
+<span class="comment">#ple4 &lt;- ple4+FLXSA(ple4,ple4.indices,FLXSA.control())</span>
+<span class="comment">#retro.years &lt;- 2004:2008</span>
+<span class="comment">#ple4.retro  &lt;-tapply(retro.years,1:length(retro.years),function(x)</span>
+<span class="comment">#return(window(ple4,end=x)+FLXSA(window(ple4,end=x),ple4.indices)))</span>
+
+<span class="comment"># coerce into FLStocks object</span>
+<span class="comment"># ple4.retro &lt;- FLStocks(ple4.retro)</span>
+<span class="comment"># full retrospective summary plot</span>
+<span class="comment"># plot(ple4.retro)</span>
+
+<span class="comment"># SPECIFIC RETROSPECTIVE PATTERNS</span>
+<span class="comment"># SSB</span>
+<span class="comment">#ylab &lt;- 'SSB'</span>
+<span class="comment">#xlab &lt;- 'Year'</span>
+<span class="comment">#mainttl &lt;- 'SSB retrospective'</span>
+<span class="comment">#xyplot(data~year,groups=qname,data=lapply(ple4.retro,ssb),xlab=xlab,ylab=ylab,main=mainttl,type="l")</span>
+
+<span class="comment"># FBAR</span>
+<span class="comment">#ylab &lt;- expression(bar(F))</span>
+<span class="comment">#xlab &lt;- 'Year'</span>
+<span class="comment">#mainttl &lt;- 'mean F retrospective'</span>
+<span class="comment">#xyplot(data~year,groups=qname,data=lapply(ple4.retro,fbar),xlab=xlab,ylab=ylab,main=mainttl,type="l")</span>
+
+<span class="comment"># RECRUITS</span>
+<span class="comment">#ple4.retro.rec &lt;- list()</span>
+<span class="comment">#for(i in 1:length(ple4.retro))</span>
+<span class="comment">#   ple4.retro.rec[[i]] &lt;- stock.n(ple4.retro[[i]])[1,]</span>
+<span class="comment">#ple4.retro.rec &lt;- FLQuants(mcf(ple4.retro.rec))</span>
+<span class="comment">#ylab &lt;- 'Recruits'</span>
+<span class="comment">#xlab &lt;- 'Year'</span>
+<span class="comment">#mainttl &lt;- 'Recruitment retrospective'</span>
+<span class="comment">#xyplot(data~year,groups=qname,data=ple4.retro.rec,xlab=xlab,ylab=ylab,main=mainttl,type="l")</span></div></pre>
+  </div>
+  <div class="span4 sidebar">
+    <!-- <ul>
+      <li>retro</li><li>retro-methods</li><li>retro,FLStock,FLIndex,ANY,numeric-method</li><li>retro,FLStock,FLIndices,ANY,numeric-method</li>
+    </ul>
+    <ul>
+      <li>models</li>
+    </ul> -->
+
+    <h2>See also</h2>
+      <p><code>FLAssess-class</code>, <code>FLICA</code>, <code>FLXSA</code></p>
+
+    
+
+    <h2>Author</h2>
+    Laurence Kell
+
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="https://getbootstrap.com/2.0.4/">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
