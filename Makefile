@@ -17,9 +17,8 @@ README.md: DESCRIPTION
 
 gh-pages: $(HELP_FILES) README.md
 	R --vanilla --silent -e "library(staticdocs);" \
-  -e "build_site('../$(PKGNAME)/', site_path='gh-pages', launch=FALSE)"; \
+  -e "build_site('../$(PKGNAME)/', launch=FALSE)"; \
 	rm -rf Rplots.pdf  
-	git subtree push --prefix gh-pages origin gh-pages
 
 NEWS: NEWS.md
 	sed -e 's/^-/-/' -e 's/^## *//' -e 's/^#//' <NEWS.md | fmt -80 -s > NEWS
