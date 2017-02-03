@@ -5,7 +5,7 @@ Basic support for FLR Stock Assessment method packages
 
 Package: FLAssess
 Title: Generic classes and methods for stock assessment models
-Version: 2.5.0
+Version: 2.5.20150717
 Author: Laurie T. Kell <laurie.kell@iccat.int>
 Description: A generic set of classes for stock assessment models
 			 are provided here. Individual assessment packages should

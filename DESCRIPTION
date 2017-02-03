@@ -4,12 +4,25 @@ Version: 2.5.20150717
 Date: 20150717
 Author: Laurie T. Kell <laurie.kell@iccat.int>
 Description: A generic set of classes for stock assessment models
-			 are provided here. Individual assessment packages should
-			 extend the basic classes.
-Collate: classFLAssess.R accessors.R methodsFLAssess.R FLSP.R projectControl.R project.R stf.R SepVPA.R VPA.R handyfuncs.R
-Depends: FLCore(>= 2.5.0), FLash(>= 2.5.0)
+    are provided here. Individual assessment packages should
+    extend the basic classes.
+Collate:
+    classFLAssess.R
+    accessors.R
+    methodsFLAssess.R
+    FLSP.R
+    projectControl.R
+    project.R
+    stf.R
+    SepVPA.R
+    VPA.R
+    handyfuncs.R
+Depends:
+    FLCore(>= 2.5.0),
+    FLash(>= 2.5.0)
 LinkingTo: FLash
 Maintainer: Iago Mosqueira <iago.mosqueira@jrc.ec.europa.eu>
 License: GPL-2
 LazyLoad: Yes
 LazyData: No
+RoxygenNote: 6.0.0
