@@ -2,8 +2,8 @@
 # FLAssess
 - Version: 2.5.20150717
 - Date: 2017-02-15
-- Author: Laurence T. Kell <laurie.kell@iccat.int>
-- Maintainer: Iago Mosqueira <iago.mosqueira@jrc.ec.europa.eu>
+- Author: Laurence T. Kell <laurie.kell AT iccat.int>
+- Maintainer: Iago Mosqueira <iago.mosqueira AT jrc.ec.europa.eu>
 - Repository: <https://github.com/flr/FLAssess/>
 - Bug reports: <https://github.com/flr/FLAssess/issues>
 
@@ -18,7 +18,6 @@ or download from the [FLAssess releases page](https://github.com/flr/FLAssess/re
 
 ## Documentation
 - [Help pages](http://flr-project.org/FLAssess)
-- Vignette
 
 ## Build Status
 [![Travis Build Status](https://travis-ci.org/flr/FLAssess.svg?branch=master)](https://travis-ci.org/flr/FLAssess)
@@ -26,7 +25,6 @@ or download from the [FLAssess releases page](https://github.com/flr/FLAssess/re
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/FLAssess)](https://cran.r-project.org/package=FLAssess)
 
 ## Releases
-- [Latest release]
 - [All release](https://github.com/flr/FLAssess/releases/)
 
 ## License
