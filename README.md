@@ -1,19 +1,40 @@
-FLAssess
-========
 
-Basic support for FLR Stock Assessment method packages
+# FLAssess
+- Version: 2.5.20150717
+- Date: 2017-02-15
+- Author: Laurence T. Kell <laurie.kell@iccat.int>
+- Maintainer: Iago Mosqueira <iago.mosqueira@jrc.ec.europa.eu>
+- Repository: <https://github.com/flr/FLAssess/>
+- Bug reports: <https://github.com/flr/FLAssess/issues>
 
-Package: FLAssess
-Title: Generic classes and methods for stock assessment models
-Version: 2.5.20150717
-Author: Laurie T. Kell <laurie.kell@iccat.int>
-Description: A generic set of classes for stock assessment models
-			 are provided here. Individual assessment packages should
-			 extend the basic classes.
-Collate: classFLAssess.R accessors.R methodsFLAssess.R FLSP.R projectControl.R project.R stf.R SepVPA.R VPA.R zzz.R handyfuncs.R deprecated.R
-Depends: FLCore(>= 2.5.0), methods
-LinkingTo: FLCore
-Maintainer: FLR Team <flr-team@flr-project.org>
-License: GPL 2.0
-lazyLoad: Yes
-lazyData: Yes
+## Overview
+A generic set of classes for stock assessment models are provided here. Individual assessment packages should extend the basic classes.
+
+To install this package, start R and enter:
+
+	install.packages("FLAssess", repos="http://flr-project.org/R")
+
+or download from the [FLAssess releases page](https://github.com/flr/FLAssess/releases/latest)
+
+## Documentation
+- [Help pages](http://flr-project.org/FLAssess)
+- Vignette
+
+## Build Status
+[![Travis Build Status](https://travis-ci.org/flr/FLAssess.svg?branch=master)](https://travis-ci.org/flr/FLAssess)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/flr/FLAssess?branch=master&svg=true)](https://ci.appveyor.com/project/flr/FLAssess)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/FLAssess)](https://cran.r-project.org/package=FLAssess)
+
+## Releases
+- [Latest release]
+- [All release](https://github.com/flr/FLAssess/releases/)
+
+## License
+Copyright (c) 2004-2015 The FLR Team. Released under the [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html).
+
+## Contact
+You are welcome to:
+
+- Submit suggestions and bug-reports at: <https://github.com/flr/FLAssess/issues>
+- Send a pull request on: <https://github.com/flr/FLAssess/>
+- Compose a friendly e-mail to: <flrteam AT flr-project.org>
