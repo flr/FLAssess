@@ -31,7 +31,7 @@ roxygen: $(R_FILES)
 update:
 	sed -i 's/Date: *\([^ ]*\)/Date: $(GITDATE)/' DESCRIPTION
 
-build: README.md roxygen NEWS
+build: README.md
 	cd ..;\
 	R CMD build $(PKGSRC) --compact-vignettes
 
