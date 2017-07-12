@@ -1,7 +1,7 @@
 
 # FLAssess
 - Version: 2.5.20150717
-- Date: 2017-02-15
+- Date: 20150717
 - Author: Laurence T. Kell <laurie.kell AT iccat.int>
 - Maintainer: Iago Mosqueira <iago.mosqueira AT jrc.ec.europa.eu>
 - Repository: <https://github.com/flr/FLAssess/>

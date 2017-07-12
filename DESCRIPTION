@@ -25,4 +25,4 @@ Maintainer: Iago Mosqueira <iago.mosqueira@jrc.ec.europa.eu>
 License: GPL-2
 LazyLoad: Yes
 LazyData: No
-RoxygenNote: 6.0.0
+RoxygenNote: 6.0.1

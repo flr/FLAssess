@@ -97,6 +97,8 @@ VPA.<-function(stock, fratio="missing", fit.plusgroup=TRUE, desc="",...) {
     for (r in c("min", "max", "plusgroup", "minyear", "maxyear"))
         range(res)[[r]] <- range(stock)[[r]]
     units(res@harvest)<-"f"
+    units(res@stock.n)<-units(stock.n(stock))
+    units(res@catch.n)<-units(catch.n(stock))
     return(res)
 
 
