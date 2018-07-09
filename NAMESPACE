@@ -1,12 +1,11 @@
+useDynLib("FLAssess", .registration = TRUE)
 import("FLCore")
-useDynLib("FLAssess")
+import("methods")
 exportClasses("FLAssess",
   "FLSepVPA.control",
-  "FLVPA",
-  "projectControl")
+  "FLVPA")
 export("assess",
-  "FLSepVPA.control",
-  "projectControl")
+  "FLSepVPA.control")
 exportMethods(
   "+",
   "assess",
@@ -22,7 +21,6 @@ exportMethods(
   "index.res<-",
   "merge",
   "plot",
-  "project",
   "SepVPA",
   "stf",
   "summary",

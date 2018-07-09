@@ -1,4 +1,4 @@
-# VPA - «Short one line description»
+# VPA - Short one line description
 
 # Author: Laurie Kell, CEFAS
 # Maintainer: Laurie Kell

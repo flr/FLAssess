@@ -1,4 +1,4 @@
-# FLAssess-methods - «Short one line description»
+# FLAssess-methods - Short one line description
 # FLAssess/R/FLAssess-methods.R
 
 # Copyright 2003-2008 FLR Team. Distributed under the GPL 2 or later
