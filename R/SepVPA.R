@@ -1,4 +1,4 @@
-# SepVPA - «Short one line description»
+# SepVPA - Short one line description
 # FLAssess/R/SepVPA.R
 
 # Copyright 2003-2007 FLR Team. Distributed under the GPL 2 or later

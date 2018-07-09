@@ -22,7 +22,6 @@ or download from the [FLAssess releases page](https://github.com/flr/FLAssess/re
 ## Build Status
 [![Travis Build Status](https://travis-ci.org/flr/FLAssess.svg?branch=master)](https://travis-ci.org/flr/FLAssess)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/flr/FLAssess?branch=master&svg=true)](https://ci.appveyor.com/project/flr/FLAssess)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/FLAssess)](https://cran.r-project.org/package=FLAssess)
 
 ## Releases
 - [All release](https://github.com/flr/FLAssess/releases/)

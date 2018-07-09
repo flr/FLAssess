@@ -1,4 +1,4 @@
-# FLAssess-class - «Short one line description»
+# FLAssess-class - A basic classes for age-based SA models
 # FLAssess-class
 
 # Copyright 2003-2008 FLR Team. Distributed under the GPL 2 or later

@@ -1,5 +1,6 @@
 useDynLib("FLAssess", .registration = TRUE)
 import("FLCore")
+import("methods")
 exportClasses("FLAssess",
   "FLSepVPA.control",
   "FLVPA")
