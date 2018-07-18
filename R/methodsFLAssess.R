@@ -37,7 +37,6 @@ setMethod('FLAssess', signature(object='FLQuant'),
     return(res)
   }
 )
-# }}}
 
 setMethod('FLAssess', signature(object='missing'),
   function(...)
@@ -56,9 +55,6 @@ setMethod('FLAssess', signature(object='missing'),
     return(FLAssess(object, ...))
   }
 ) # }}}
-
-
-
 
 # summary {{{
 setMethod("summary", signature(object="FLAssess"),
@@ -85,6 +81,7 @@ setMethod("summary", signature(object="FLAssess"),
 setMethod('plot', signature(x='FLAssess', y='missing'),
   function(x, ...)
   {
+  qname <- NULL
   xyplot(data~year, groups=qname, FLQuants(stock=quantSums(x@stock.n),
   catch=quantSums(x@catch.n)), type='b', pch=19,
   panel = panel.superpose.2)
