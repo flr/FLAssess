@@ -65,18 +65,19 @@
 
 \section{Slots}{
   \describe{
-    \item{name:}{A character string give name of stock.}
-    \item{desc:}{Whatever you want.}
-    \item{range:}{A named vector specifying the range of the object.}
-    \item{catch.n:}{An FLQuant that contains estimated catch numbers-at-age.}
-    \item{stock.n:}{An FLQuant that contains estimated stock numbers-at-age.}
-    \item{harvest:}{An FLQuant that contains estimated fishing mortlaity-at-age.}
-    \item{index.name:}{A vector containing names for the FLIndexs}
-    \item{index.range:}{A list containing ranges for the FLIndexs}
-    \item{index:}{A list of FLQuants, corresponding to the index values used when fitting.}
-    \item{index.hat:}{A list of FLQuants, corresponding to the fitted index values.}
-    \item{index.res:}{A list of FLQuants, corresponding to the index residuals.}
-    \item{index.var:}{A list of FLQuants, corresponding to the variances of index values in fitting.}    
+    \item{name}{A character string give name of stock.}
+    \item{desc}{Whatever you want.}
+    \item{range}{A named vector specifying the range of the object.}
+    \item{call}{Call that generated the object.}
+    \item{catch.n}{An FLQuant that contains estimated catch numbers-at-age.}
+    \item{stock.n}{An FLQuant that contains estimated stock numbers-at-age.}
+    \item{harvest}{An FLQuant that contains estimated fishing mortlaity-at-age.}
+    \item{index.name}{A vector containing names for the FLIndexs}
+    \item{index.range}{A list containing ranges for the FLIndexs}
+    \item{index}{A list of FLQuants, corresponding to the index values used when fitting.}
+    \item{index.hat}{A list of FLQuants, corresponding to the fitted index values.}
+    \item{index.res}{A list of FLQuants, corresponding to the index residuals.}
+    \item{index.var}{A list of FLQuants, corresponding to the variances of index values in fitting.}    
   }
 }
 
