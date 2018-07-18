@@ -20,6 +20,8 @@ Collate:
 Depends:
   methods,
   FLCore(>= 2.5.0)
+Imports:
+  lattice
 Additional_repositories: http://flr-project.org/R
 License: GPL-2
 LazyLoad: Yes

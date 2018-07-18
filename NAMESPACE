@@ -1,6 +1,8 @@
 useDynLib("FLAssess", .registration = TRUE)
 import("FLCore")
 import("methods")
+importFrom("lattice", "panel.superpose.2")
+importFrom("stats", "dnorm")
 exportClasses("FLAssess",
   "FLSepVPA.control",
   "FLVPA")
