@@ -1,7 +1,7 @@
 
 # FLAssess
-- Version: 2.6.2
-- Date: 2018-07-09
+- Version: 2.6.3
+- Date: 2018-10-02
 - Author: Laurence T. Kell <laurie.kell AT iccat.int>
 - Maintainer: Iago Mosqueira <iago.mosqueira AT jrc.ec.europa.eu>
 - Repository: <https://github.com/flr/FLAssess/>

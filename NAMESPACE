@@ -24,7 +24,6 @@ exportMethods(
   "merge",
   "plot",
   "SepVPA",
-  "stf",
   "summary",
   "VPA",
   "FLAssess",
