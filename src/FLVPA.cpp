@@ -101,8 +101,8 @@ extern "C" SEXPDLLExport AdaptFunc(SEXP xStock, SEXP xFitPlusGroup, SEXP xFratio
    for (iage=q.minquant(); iage<=q.maxquant(); iage++)
      for (iyr=index.minyr(); iyr<=index.maxyr(); iyr++)
         {
-        double _N = VPA.N(iage,iyr)*q(iage,q.minyr(),1,1,1,1); 
-        ss += pow((index(iage,iyr)-_N)/_N,2.0);
+        double N = VPA.N(iage,iyr)*q(iage,q.minyr(),1,1,1,1); 
+        ss += pow((index(iage,iyr)-N)/N,2.0);
         } 
 
    //end calculate objective function
