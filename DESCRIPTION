@@ -3,7 +3,7 @@ Title: Generic Classes and Methods for Stock Assessment Models
 Version: 2.6.3
 Date: 2018-10-02
 Authors@R: c(
-  person("Iago", "Mosqueira", email = "iago.mosqueira@ec.europa.eu", role = "cre"),
+  person("Iago", "Mosqueira", email = "iago.mosqueira@wur.nl", role = "cre"),
   person("Laurence T.", "Kell", email = "laurie.kell@iccat.int", role = "aut"))
 Description: A generic set of classes for stock assessment models
     are provided here. Individual assessment packages should
@@ -25,4 +25,4 @@ Additional_repositories: http://flr-project.org/R
 License: GPL-2
 LazyLoad: Yes
 LazyData: No
-RoxygenNote: 6.1.0
+RoxygenNote: 7.2.1

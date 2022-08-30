@@ -19,7 +19,7 @@ if (!isGeneric("VPA")) {
 	})
 }
 setMethod("VPA",signature(stock="FLStock"),
-VPA.<-function(stock, fratio="missing", fit.plusgroup=TRUE, desc="",...) {
+  function(stock, fratio="missing", fit.plusgroup=TRUE, desc="",...) {
     
     Call <- match.call()
 	
