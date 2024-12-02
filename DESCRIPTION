@@ -1,6 +1,6 @@
 Package: FLAssess
 Title: Generic Classes and Methods for Stock Assessment Models
-Version: 2.6.3
+Version: 2.6.3.9001
 Date: 2018-10-02
 Authors@R: c(
   person("Iago", "Mosqueira", email = "iago.mosqueira@wur.nl", role = "cre"),
