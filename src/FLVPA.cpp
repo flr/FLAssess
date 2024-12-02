@@ -136,10 +136,10 @@ bool FLVPA::isFLVPA(SEXP x)
 void FLVPA::Init(SEXP x)
    {
 
-   SEXP      range = GET_SLOT(x, install("range"));
+   SEXP      range = GET_SLOT(x, Rf_install("range"));
    SEXP RangeNames = GET_NAMES(range);
 	  
-   int n = length(RangeNames);
+   int n = Rf_length(RangeNames);
 
    minage   = maxage = 
    minyr    = maxyr  = 
@@ -172,10 +172,10 @@ void FLVPA::Init(SEXP x)
            maxyr    = (short)(REAL(range)[i]);
       }
 
-   Catch.Init(GET_SLOT(x, install("catch.n")));        
-   M.Init(    GET_SLOT(x, install("m")));               
-   F.Init(    GET_SLOT(x, install("harvest")));               
-   N.Init(    GET_SLOT(x, install("stock.n")));               
+   Catch.Init(GET_SLOT(x, Rf_install("catch.n")));        
+   M.Init(    GET_SLOT(x, Rf_install("m")));               
+   F.Init(    GET_SLOT(x, Rf_install("harvest")));               
+   N.Init(    GET_SLOT(x, Rf_install("stock.n")));               
    
    niters = niters>=M.niters()     ? niters : M.niters();
    niters = niters>=Catch.niters() ? niters : Catch.niters();
@@ -201,9 +201,9 @@ SEXP FLVPA::Return(void)
    REAL(Range)[3] = minyr;
    REAL(Range)[4] = maxyr;
        
-   SET_SLOT(x, install("stock.n"), N.Return());
-   SET_SLOT(x, install("harvest"), F.Return());
-   SET_SLOT(x, install("catch.n"), Catch.Return());
+   SET_SLOT(x, Rf_install("stock.n"), N.Return());
+   SET_SLOT(x, Rf_install("harvest"), F.Return());
+   SET_SLOT(x, Rf_install("catch.n"), Catch.Return());
    
    UNPROTECT(2);
 
@@ -243,8 +243,8 @@ bool FLVPA::SepVPA(SEXP xControl, SEXP xRefHarvest)
         H[iage]         =(double*) malloc((maxyr -minyr +1)*sizeof(double)) - minyr;
         }
 
-      int    refage = (short) INTEGER(GET_SLOT(xControl,install("sep.age")))[0];
-      double refsep = _max(REAL(GET_SLOT(xControl,install("sep.sel")))[0],0.0);
+      int    refage = (short) INTEGER(GET_SLOT(xControl,Rf_install("sep.age")))[0];
+      double refsep = _max(REAL(GET_SLOT(xControl,Rf_install("sep.sel")))[0],0.0);
       double refF   = _max(REAL(xRefHarvest)[0],0.0);
 
       Selectivity[refage] = refsep;
