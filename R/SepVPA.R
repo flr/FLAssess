@@ -56,7 +56,6 @@ FLSepVPA.control <- function(sep.age="missing",sep.sel="missing",sep.nyr="missin
 } # }}}
 
 ## SepVPA   {{{
-if (!isGeneric("SepVPA"))
 	setGeneric("SepVPA", function(stock, ...)
 		standardGeneric("SepVPA"))
 
@@ -156,6 +155,8 @@ setMethod("SepVPA", signature(stock="FLStock"),
 
 # assess(FLSepVPA.control)    {{{
 # assess(new('FLSepVPA.control'), FLStock())
+	setGeneric("assess", function(control, ...)
+		standardGeneric("assess"))
 setMethod("assess", signature(control="FLSepVPA.control"),
     function(control, ...){
 

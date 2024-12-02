@@ -24,7 +24,6 @@ setMethod('harvest', signature(object='FLAssess', catch='missing'),
     }
 )
 
-if(!isGeneric('index.name'))
     setGeneric('index.name', function(object, ...) standardGeneric('index.name'))
 
 setMethod('index.name', signature(object='FLAssess'),
@@ -33,7 +32,6 @@ setMethod('index.name', signature(object='FLAssess'),
     }
 )
 
-if(!isGeneric('index.range'))
     setGeneric('index.range', function(object, ...) standardGeneric('index.range'))
 
 setMethod('index.range', signature(object='FLAssess'),
@@ -48,7 +46,6 @@ setMethod('index', signature(object='FLAssess'),
     }
 )
 
-if(!isGeneric('index.res'))
     setGeneric('index.res', function(object, ...) standardGeneric('index.res'))
 
 setMethod('index.res', signature(object='FLAssess'),
@@ -57,7 +54,6 @@ setMethod('index.res', signature(object='FLAssess'),
     }
 )
 
-if(!isGeneric('index.hat'))
     setGeneric('index.hat', function(object, ...) standardGeneric('index.hat'))
 
 setMethod('index.hat', signature(object='FLAssess'),
@@ -66,7 +62,6 @@ setMethod('index.hat', signature(object='FLAssess'),
     }
 )
 
-if(!isGeneric('index.var'))
     setGeneric('index.var', function(object, ...) standardGeneric('index.var'))
 
 setMethod('index.var', signature(object='FLAssess'),
@@ -94,7 +89,6 @@ function(object,value){
   if(validObject(object)) object else stop("")
 })
 
-if(!isGeneric('index.name<-'))
   setGeneric('index.name<-', function(object, ..., value) standardGeneric('index.name<-'))
 
 setMethod('index.name<-', signature(object='FLAssess', value = 'character'),
@@ -103,7 +97,6 @@ function(object,value){
     if(validObject(object)) object else stop("")
 })
 
-if(!isGeneric('index.range<-'))
   setGeneric('index.range<-', function(object, ..., value)
     standardGeneric('index.range<-'))
 
@@ -113,7 +106,6 @@ function(object,value){
     if(validObject(object)) object else stop("")
 })
 
-if(!isGeneric('index<-'))
   setGeneric('index<-', function(object, ..., value)
     standardGeneric('index<-'))
 
@@ -123,7 +115,6 @@ function(object,value){
     if(validObject(object)) object else stop("")
 })
 
-if(!isGeneric('index.res<-'))
     setGeneric('index.res<-', function(object, ..., value) standardGeneric('index.res<-'))
 
 setMethod('index.res<-', signature(object='FLAssess', value = 'FLQuants'),
@@ -132,7 +123,6 @@ function(object,value){
     if(validObject(object)) object else stop("")
 })
 
-if(!isGeneric('index.hat<-'))
     setGeneric('index.hat<-', function(object, ..., value) standardGeneric('index.hat<-'))
 
 setMethod('index.hat<-', signature(object='FLAssess', value = 'FLQuants'),
@@ -141,7 +131,6 @@ function(object,value){
     if(validObject(object)) object else stop("")
 })
 
-if(!isGeneric('index.var<-'))
     setGeneric('index.var<-', function(object, ..., value) standardGeneric('index.var<-'))
 
 setMethod('index.var<-', signature(object='FLAssess', value = 'FLQuants'),

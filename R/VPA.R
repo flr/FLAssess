@@ -12,12 +12,9 @@
 setClass('FLVPA', representation('FLAssess'))
 
 ## VPA  {{{
-if (!isGeneric("VPA")) {
 	setGeneric("VPA", function(stock, ...){
-		value  <-  standardGeneric("VPA")
-		value
+		standardGeneric("VPA")
 	})
-}
 setMethod("VPA",signature(stock="FLStock"),
   function(stock, fratio="missing", fit.plusgroup=TRUE, desc="",...) {
     

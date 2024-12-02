@@ -7,6 +7,9 @@ if (!isGeneric("Z"))
 
 
 # Z(stock=FLStock)  {{{
+	setGeneric("Z", function(stock, ...){
+		standardGeneric("Z")
+	})
 setMethod("Z", signature(stock="FLStock"),
        function(stock, ...){
          if(all(is.na(harvest(stock))))
